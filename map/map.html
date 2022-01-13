@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="map.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="myMap" style="position:relative;width:100%;height:450px;"></div>
+
+
+    <script src="https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=Ao9IgTRmH17lqrc9iO_i2-IsGvTIyC0ElA14lriblJWkB4cgUjlnIBR_OKCXHE1F" async defer></script>
+    <script>
+    let map;
+function GetMap() {
+    map = new Microsoft.Maps.Map('#myMap', {
+        center: new Microsoft.Maps.Location(47.6149, -122.1941), //Location center position
+        mapTypeId: Microsoft.Maps.MapTypeId.load, //aerial,canvasDark,canvasLight,birdseye,grayscale,streetside
+        zoom: 8  //Zoom:1=zoomOut ~ 20=zoomUp
+    });
+}
+</script>
+<script>
+function GetMap(){
+    let map = new Microsoft.Maps.Map('#myMap',{
+        center: new Microsoft.Maps.Location(42.91286091,143.04930196),
+        zoom: 15
+    });
+
+    let center = map.getCenter();
+    let infobox = new Microsoft.Maps.Infobox(center,{
+        title: '旭屋',
+        description: 'メロンパン美味しい'
+    });
+
+    let location2 = new Microsoft.Maps.Location(42.91204025172004, 143.07585050197324);
+    let infobox2 = new Microsoft.Maps.Infobox(location2, {
+         title: 'めむろ釜',
+         description: 'ますやの分身'
+     });
+
+    let location3 = new Microsoft.Maps.Location(42.92088691278438, 143.05728067760313);
+    let infobox3 = new Microsoft.Maps.Infobox(location2, {
+        title: 'ファリーヌド・パリ',
+        description: '晩御飯のお買い物ついでに寄れる'
+     });
+
+    let location4 = new Microsoft.Maps.Location(42.90586667707981, 143.0555951006281);
+    let infobox4 = new Microsoft.Maps.Infobox(location2, {
+        title: 'リスどん',
+        description: ''
+     });
+
+
+    infobox.setMap(map);
+    infobox2.setMap(map);
+    infobox3.setMap(map);
+ 
+}
+</script>
+</body>
+
+</html>
